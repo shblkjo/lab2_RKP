@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Студент</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1 th:if="${student.id == null}">
+        Добавление студента
+    </h1>
+    <h1 th:if="${student.id != null}">
+        Редактирование студента
+    </h1>
+
+    <form th:action="@{/students/save}"
+          th:object="${student}"
+          method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <label>Фамилия:</label>
+        <input type="text" th:field="*{surname}" required>
+        <label>Имя:</label>
+        <input type="text" th:field="*{name}" required>
+        <label>Отчество:</label>
+        <input type="text" th:field="*{patronymic}">
+        <label>Пол:</label>
+        <input type="text" th:field="*{gender}">
+        <label>Национальность:</label>
+        <input type="text" th:field="*{nationality}">
+        <label>Рост (см):</label>
+        <input type="number" step="0.1" th:field="*{height}">
+        <label>Вес (кг):</label>
+        <input type="number" step="0.1" th:field="*{weight}">
+        <label>Дата рождения:</label>
+        <input type="date" th:field="*{birthDate}">
+        <label>Номер телефона:</label>
+        <input type="text" th:field="*{phone}">
+        <label>ВУЗ:</label>
+        <input type="text" th:field="*{university}">
+        <label>Курс:</label>
+        <input type="number" th:field="*{course}">
+        <label>Группа:</label>
+        <input type="text" th:field="*{studentGroup}">
+        <label>Средний балл:</label>
+        <input type="number" step="0.01" th:field="*{averageGrade}">
+        <label>Специальность:</label>
+        <input type="text" th:field="*{specialty}">
+        <button type="submit">Сохранить</button>
+    </form>
+    <br>
+    <a th:href="@{/students}">Вернуться к списку</a>
+</div>
+
+</body>
+</html>

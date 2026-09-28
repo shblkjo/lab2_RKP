@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о студенте</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Информация о студенте</h1>
+
+    <p>ID: <span th:text="${student.id}"></span></p>
+    <p>Фамилия: <span th:text="${student.surname}"></span></p>
+    <p>Имя: <span th:text="${student.name}"></span></p>
+    <p>Отчество: <span th:text="${student.patronymic}"></span></p>
+    <p>Пол: <span th:text="${student.gender}"></span></p>
+    <p>Национальность: <span th:text="${student.nationality}"></span></p>
+    <p>Рост: <span th:text="${student.height}"></span> см</p>
+    <p>Вес: <span th:text="${student.weight}"></span> кг</p>
+    <p>Дата рождения: <span th:text="${student.birthDate}"></span></p>
+    <p>Телефон: <span th:text="${student.phone}"></span></p>
+    <p>ВУЗ: <span th:text="${student.university}"></span></p>
+    <p>Курс: <span th:text="${student.course}"></span></p>
+    <p>Группа: <span th:text="${student.studentGroup}"></span></p>
+    <p>Средний балл: <span th:text="${student.averageGrade}"></span></p>
+    <p>Специальность: <span th:text="${student.specialty}"></span></p>
+
+    <a th:href="@{/students/update/{id}(id=${student.id})}">
+        Изменить
+    </a>
+
+    <br><br>
+
+    <a th:href="@{/students}">Вернуться к списку</a>
+
+</div>
+
+</body>
+</html>
